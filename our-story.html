@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealZure - Our Story</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> <style>
+        /* This internal style block is a fallback/temporary. For production,
+           you should move these styles to a separate 'style.css' file as well. */
+        :root {
+            --primary: #d35400;
+            --secondary: #e67e22;
+            --accent: #f39c12;
+            --dark: #7f8c8d;
+            --light: #ecf0f1;
+            --text: #2c3e50;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            padding-top: 80px; /* To account for the fixed header */
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 15px auto;
+        }
+        
+        /* Header Styles - Copied from index.html */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Our Story Section Specific Styles */
+        .our-story-page { /* Renamed class to avoid conflict if you later add an 'our-story' section on index */
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .story-content {
+            display: flex;
+            flex-direction: row; 
+            gap: 40px;
+            align-items: center;
+        }
+
+        .story-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .story-text {
+            flex: 2;
+        }
+
+        .story-text p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        /* Footer Styles - Copied from index.html */
+        footer {
+            background-color: var(--text);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles - Copied from index.html and adjusted */
+        @media (max-width: 992px) {
+            .story-content {
+                flex-direction: column; /* Stack image and text on smaller screens */
+                text-align: center;
+            }
+
+            .story-image,
+            .story-text {
+                flex: none;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+            <img src="img/healzure.logo.jpg" alt="HealZure Logo"> <h1>HealZure</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                    <li><a href="our-story.html">Our Story</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="our-story-page">
+        <div class="container">
+            <h2 class="section-title">Our Story: The Heart of HealZure</h2>
+            <div class="story-content">
+                <div class="story-image">
+                    <img src="img/Robina card.jpg" alt="HealZure Founders working on traditional pickle making">
+                    </div>
+                <div class="story-text">
+                    <p>Hello! I'm Robina Judith.R, founder of HealZure — where every jar is a journey into the vibrant flavors and healthful treasures of my coastal home in Kanyakumari.
+
+Kanyakumari is where three seas and an ocean meet, and where the freshest, most flavorful fish thrive in pristine waters. From succulent tuna rich in protein, to delicate sardines bursting with natural calcium, our coastline offers ingredients that are as nourishing as they are delicious.
+
+I started HealZure with one clear mission:To capture the authentic taste of these coastal gems, while keeping your health at the heart of it all. At HealZure, we believe that food should not only satisfy your taste buds but also make you feel good from within.
+
+That's why our pickles are crafted from locally sourced fish, premium spices, and absolutely no artificial colors or preservatives. They're not just packed with bold, clean flavors they're a natural source of essential protein and calcium, helping you stay strong, healthy, and vibrant.
+
+HealZure makes you glow from within and that's not just our slogan, but my personal commitment to you.
+
+Thank you for being part of this flavorful, healthful adventure. Here's to glowing health and unforgettable taste!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">HealZure</div>
+                    <p>Preserving India's rich pickle-making heritage with authentic recipes and premium ingredients.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1GBezTwp4c/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/healzure?igsh=YnMxdWRxY2g2ZTB5"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/Healzure?t=TDgK5EtiWylByuRzVH_LKQ&s=09"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#products">Products</a></li>
+                        <li><a href="our-story.html">Our Story</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#"> Tuna Fish Pickle</a></li>
+                        <li><a href="#"> Sardine Fish Pickle </a></li>
+                        <li><a href="#"> Prawn Fish Pickle </a></li>
+                        <li><a href="#"> Red Snapper Fish Pickle </a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Kanyakumari District, Tamil Nadu, India</li>
+                        <li><a href="tel:+918807729782"><i class="fas fa-phone"></i> +91 88077 29782</a></li>
+                        <li><a href="mailto:healzure@gmail.com"><i class="fas fa-envelope"></i> healzure@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 HealZure. All Rights Reserved. Proudly Made in India.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple JavaScript for mobile menu toggle
+            document.querySelector('.mobile-menu').addEventListener('click', function() {
+                const navUl = document.querySelector('nav ul');
+                navUl.style.display = navUl.style.display === 'flex' ? 'none' : 'flex';
+            });
+            
+            // Smooth scrolling for anchor links (adjusted for multi-page)
+            document.querySelectorAll('a[href^="index.html#"], a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetHref = this.getAttribute('href');
+                    
+                    // If it's a link to an ID on the current page
+                    if (targetHref.startsWith('#')) {
+                        e.preventDefault(); 
+                        const targetElement = document.querySelector(targetHref);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    } 
+                    // If it's a link to an ID on the index.html page (from our-story.html)
+                    else if (targetHref.startsWith('index.html#')) {
+                        // Allow default navigation to the index page, the #anchor will then work there.
+                        // No e.preventDefault() needed here.
+                    }
+
+                    // For mobile menu, close it after clicking a link
+                    const navUl = document.querySelector('nav ul');
+                    if (window.innerWidth <= 768) { 
+                         navUl.style.display = 'none';
+                    }
+                });
+            });
+
+            // Dynamic Copyright Year
+            const copyrightYear = document.querySelector('.copyright p');
+            if (copyrightYear) {
+                copyrightYear.innerHTML = `&copy; ${new Date().getFullYear()} HealZure. All Rights Reserved. Proudly Made in India.`;
+            }
+        });
+    </script>
+</body>
+</html>
